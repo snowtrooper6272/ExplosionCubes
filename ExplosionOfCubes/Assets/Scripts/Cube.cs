@@ -25,7 +25,11 @@ public class Cube : MonoBehaviour
             Cube[] generatedCubes = Spawner.CreateCubes(Random.Range(_minCountChilds, _maxCountChilds + 1), this).ToArray();
 
             InitNewGeneration(generatedCubes);
-            _exception.Explode(generatedCubes);
+            _exception.ExplodeNewCubes(generatedCubes);
+        }
+        else 
+        {
+            _exception.Explode();
         }
 
         Destroy(gameObject);
